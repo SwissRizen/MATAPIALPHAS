@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>New Flare</title>
+{% endblock %}
+
+{% block body %}
+<br>
+<main role="main">
+    <div class="jumbotron">
+        <div class="col-sm-8 mx-auto">
+
+            <p class="text-info">To specify the time to check for flares please enter the first time pair in the Time
+                1a/b fields. To
+                reduce the amount of data being processed and thus increase the speed of this application try keeping
+                these two times at a distance of about 15 seconds, as the instrument takes a picture each 12-15s at a
+                wavelength of 131 Angstrom. The second time pair should be written in the Time 2 a/b fields. Please
+                adhere to the form the times have to be input, or it will break the
+                system.(Year,Month,Day,Hour,Minute,Second) </p>
+
+        </div>
+    </div>
+</main>
+
+
+
+
+<h1>New Flare</h1>
+
+<hr>
+<form action='/flares/new' method='POST'>
+    <label for="username">Username:</label>
+    <div class="field">
+        <input class="form-control" type="text" name='username' id='username'
+            placeholder="Enter your desired name to distinguish the flares">
+    </div>
+    <hr>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="tstart1">Start Time 1(Format: YYYY-MM-DDTHH:MM:SS):</label>
+            <div class="field">
+                <input class="form-control" type="text" pattern="[\d]{4}-[\d]{2}-[\d]{2}T[\d]{2}:[\d]{2}:[\d]{2}"
+                    name='tstart1' id='tstart1' value="YYYY-MM-DDTHH:MM:SS">
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="tend1">End Time 1(Format: YYYY-MM-DDTHH:MM:SS):</label>
+            <div class="field">
+                <input class="form-control" type="text" pattern="[\d]{4}-[\d]{2}-[\d]{2}T[\d]{2}:[\d]{2}:[\d]{2}" name='tend1' id='tend1' value="YYYY-MM-DDTHH:MM:SS">
+            </div>
+        </div>  
+    </div> 
+        <hr>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="tstart2">Start Time 2(Format: YYYY-MM-DDTHH:MM:SS):</label>
+                <div class="field">
+                    <input class="form-control" type="text" pattern="[\d]{4}-[\d]{2}-[\d]{2}T[\d]{2}:[\d]{2}:[\d]{2}"
+                        name='tstart2' id='tstart2' value="YYYY-MM-DDTHH:MM:SS">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="tend2">End Time 2(Format: YYYY-MM-DDTHH:MM:SS):</label>
+                <div class="field">
+                    <input class="form-control" type="text" pattern="[\d]{4}-[\d]{2}-[\d]{2}T[\d]{2}:[\d]{2}:[\d]{2}" name='tend2' id='tend2' value="YYYY-MM-DDTHH:MM:SS">
+                </div>
+            </div>  
+        </div> 
+        <button type='submit' class="btn btn-dark">Search!</button>
+
+</form>
+<hr>
+{% endblock %}

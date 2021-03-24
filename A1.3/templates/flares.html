@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Flares</title>
+{% endblock %}
+
+{% block body %} 
+<br>
+<div>
+    <h1 style="display:inline">Latest User generated Flares</h1>
+    <a style="display:inline" class="btn btn-success float-right" href="http://192.168.0.66:8501">+New Flare</a>
+</div>
+<hr>
+
+
+{% for list in all_flares %}
+    <p class="aligncenter">
+        <img class="marginauto" src={{list[3]}} >
+    </p>    
+
+{% endfor %}
+   
+
+<!--<p style="white-space: pre-wrap">{{ s }}</p>
+        <a class="btn btn-danger" href='/posts/delete/{{id}}'>Delete</a>
+        <a class="btn btn-primary" href='/posts/edit/{{id}}'>Edit</a>-->
+{% endblock %}
